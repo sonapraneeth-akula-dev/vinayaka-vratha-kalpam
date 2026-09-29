@@ -8,23 +8,18 @@ same as the existing Chandra-curse and Jambavanta pairs.
 
 In reading order. Panels are cropped into `<source>-1.png` / `<source>-2.png`.
 
-| Section | Left | Right | Source |
-|---|---|---|---|
-| శ్రీ వినాయక వ్రతకథ (after Shiva's speech) | కుమారస్వామి శివుని ప్రశ్నించుట | వినాయక వ్రత విధానము | `images/kumaraswamy-asking.png` |
-| శ్యమంతకోపాఖ్యానం (mid-section) | సూర్యుడు సత్రాజిత్తుకు శ్యమంతకమణి ఇచ్చుట | జాంబవంతుడు మణిని గొనుట | `images/syamantaka-mani.png` |
-| శ్యమంతకోపాఖ్యానం (end) | పాలలో చంద్రుని ప్రతిబింబము చూచుట | బలరాముని ఆదేశంతో కృష్ణుని వ్రతాచరణ | `images/krishna-moon-in-milk.png` |
-| శ్రీ వినాయకుడు చంద్రుని శపించుట | తాండవ గణపతిని చంద్రుడపహసించుట | గణపతి చంద్రుని శపించుట | `images/ganesha-curse.png` |
-| జాంబవత్యుపాఖ్యానము… | శ్రీ కృష్ణ జాంబవంతుల యుద్ధము | శ్రీకృష్ణ సత్యభామా కళ్యాణము | `images/jambavanta-war.png` |
-
-## Proposed
-
-| # | Placement | Left caption | Right caption | File |
+| # | Section | Left | Right | Source |
 |---|---|---|---|---|
-| 1 | Start of శ్రీ వినాయక వ్రతకథ | పాండవుల వనవాసము | సూతమహాముని వ్రతోపదేశము | `images/naimisharanya.png` |
-| 5 | Before “హరిః ఓం తత్సత్” | ధర్మరాజు వినాయక వ్రతాచరణ | ధర్మరాజు పట్టాభిషేకము | `images/pattabhishekam.png` |
+| 1 | శ్రీ వినాయక వ్రతకథ (start) | పాండవుల వనవాసము | సూతమహాముని వ్రతోపదేశము | `images/pandavas-vanvas.png` |
+| 2 | శ్రీ వినాయక వ్రతకథ (after Shiva's speech) | కుమారస్వామి శివుని ప్రశ్నించుట | వినాయక వ్రత విధానము | `images/kumaraswamy-asking.png` |
+| 3 | శ్యమంతకోపాఖ్యానం (mid-section) | సూర్యుడు సత్రాజిత్తుకు శ్యమంతకమణి ఇచ్చుట | జాంబవంతుడు మణిని గొనుట | `images/syamantaka-mani.png` |
+| 4 | శ్యమంతకోపాఖ్యానం (end) | పాలలో చంద్రుని ప్రతిబింబము చూచుట | బలరాముని ఆదేశంతో కృష్ణుని వ్రతాచరణ | `images/krishna-moon-in-milk.png` |
+| – | శ్రీ వినాయకుడు చంద్రుని శపించుట | తాండవ గణపతిని చంద్రుడపహసించుట | గణపతి చంద్రుని శపించుట | `images/ganesha-curse.png` |
+| – | జాంబవత్యుపాఖ్యానము… | శ్రీ కృష్ణ జాంబవంతుల యుద్ధము | శ్రీకృష్ణ సత్యభామా కళ్యాణము | `images/jambavanta-war.png` |
+| 5 | Before “హరిః ఓం తత్సత్” | ధర్మరాజు వినాయక వ్రతాచరణ | ధర్మరాజు పట్టాభిషేకము | `images/pandavas-pattabhiskam.png` |
 
-Scenes 2–4 are done (see Existing); their prompts are kept below for
-regeneration. The remaining two add roughly one page.
+All five proposed scenes are done; `#` matches the prompt number below.
+The prompts are kept for regeneration.
 
 ## Image requirements
 
