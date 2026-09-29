@@ -6,8 +6,13 @@ same as the existing Chandra-curse and Jambavanta pairs.
 
 ## Existing
 
+In reading order. Panels are cropped into `<source>-1.png` / `<source>-2.png`.
+
 | Section | Left | Right | Source |
 |---|---|---|---|
+| శ్రీ వినాయక వ్రతకథ (after Shiva's speech) | కుమారస్వామి శివుని ప్రశ్నించుట | వినాయక వ్రత విధానము | `images/kumaraswamy-asking.png` |
+| శ్యమంతకోపాఖ్యానం (mid-section) | సూర్యుడు సత్రాజిత్తుకు శ్యమంతకమణి ఇచ్చుట | జాంబవంతుడు మణిని గొనుట | `images/syamantaka-mani.png` |
+| శ్యమంతకోపాఖ్యానం (end) | పాలలో చంద్రుని ప్రతిబింబము చూచుట | బలరాముని ఆదేశంతో కృష్ణుని వ్రతాచరణ | `images/krishna-moon-in-milk.png` |
 | శ్రీ వినాయకుడు చంద్రుని శపించుట | తాండవ గణపతిని చంద్రుడపహసించుట | గణపతి చంద్రుని శపించుట | `images/ganesha-curse.png` |
 | జాంబవత్యుపాఖ్యానము… | శ్రీ కృష్ణ జాంబవంతుల యుద్ధము | శ్రీకృష్ణ సత్యభామా కళ్యాణము | `images/jambavanta-war.png` |
 
@@ -16,12 +21,10 @@ same as the existing Chandra-curse and Jambavanta pairs.
 | # | Placement | Left caption | Right caption | File |
 |---|---|---|---|---|
 | 1 | Start of శ్రీ వినాయక వ్రతకథ | పాండవుల వనవాసము | సూతమహాముని వ్రతోపదేశము | `images/naimisharanya.png` |
-| 2 | After Shiva's speech, before the దమయంతి paragraph | కుమారస్వామి శివుని ప్రశ్నించుట | వినాయక వ్రత విధానము | `images/vratha-vidhanam.png` |
-| 3 | శ్యమంతకోపాఖ్యానం | సూర్యుడు సత్రాజిత్తుకు శ్యమంతకమణి ఇచ్చుట | జాంబవంతుడు సింహమును చంపి మణిని గొనుట | `images/syamantaka.png` |
-| 4 | End of శ్యమంతకోపాఖ్యానం, before the curse section | పాలలో చంద్రుని ప్రతిబింబము చూచుట | బలరాముని ఆదేశంతో కృష్ణుని వ్రతాచరణ | `images/krishna-apavadu.png` |
 | 5 | Before “హరిః ఓం తత్సత్” | ధర్మరాజు వినాయక వ్రతాచరణ | ధర్మరాజు పట్టాభిషేకము | `images/pattabhishekam.png` |
 
-All five add roughly two pages.
+Scenes 2–4 are done (see Existing); their prompts are kept below for
+regeneration. The remaining two add roughly one page.
 
 ## Image requirements
 
