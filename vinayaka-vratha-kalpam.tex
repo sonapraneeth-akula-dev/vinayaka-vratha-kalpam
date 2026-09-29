@@ -1,5 +1,6 @@
 % Compile: xelatex vinayaka-vratha-kalpam.tex (run twice for the contents page)
-% Fonts: bundled Noto Sans Telugu in fonts/noto-sans-telugu (Regular + Bold).
+% Fonts (bundled in fonts/, OFL): Anek Telugu body, Baloo Tammudu 2 section
+% banners, Suravaram cover title, Ramabhadra page-border badges.
 \documentclass[12pt,a4paper]{article}
 \usepackage[a4paper,margin=2.2cm,top=2.8cm,bottom=2.6cm]{geometry}
 \usepackage{fontspec}
@@ -7,15 +8,23 @@
 \usepackage{tikz}
 \newlength\covw
 \newlength\covacc
-\newcommand{\covfont}{\normalfont\fontsize{56}{60}\selectfont\bfseries}
+\newcommand{\covfont}{\suravaram\fontsize{60}{64}\selectfont}
 \usepackage{eso-pic}
 \usepackage[most]{tcolorbox}
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage[hidelinks]{hyperref}
 
-\setmainfont{NotoSansTelugu}[Script=Telugu, Path=fonts/noto-sans-telugu/,
-  Extension=.ttf, UprightFont=*-Regular, BoldFont=*-Bold]
+\defaultfontfeatures{Script=Telugu, Extension=.ttf}
+\setmainfont{AnekTelugu}[Path=fonts/anek-telugu/,
+  UprightFont=*-Regular, BoldFont=*-Bold]
+\newfontfamily\baloo{BalooTammudu2-Bold}[Path=fonts/baloo-tammudu-2/]
+\newfontfamily\suravaram{Suravaram-Regular}[Path=fonts/suravaram/]
+\newfontfamily\ramabhadra{Ramabhadra-Regular}[Path=fonts/ramabhadra/]
+% Anek Telugu and Baloo lack the dandas; borrow them from Ramabhadra
+\usepackage{newunicodechar}
+\newunicodechar{।}{{\ramabhadra ।}}
+\newunicodechar{॥}{{\ramabhadra ॥}}
 \linespread{1.35}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.6em}
@@ -80,9 +89,9 @@
       \cornermandala{NW}{315}\cornermandala{SE}{135}%
     \fi
     \node[fill=cream,draw=saffron,line width=1.5pt,rounded corners=8pt,
-      text=maroon,font=\bfseries,inner xsep=12pt,inner ysep=4pt]
+      text=maroon,font=\ramabhadra,inner xsep=12pt,inner ysep=4pt]
       at ([yshift=-1.1cm]current page.north) {శ్రీ వినాయక వ్రతకల్పము};
-    \node[circle,fill=saffron,text=white,inner sep=3pt,font=\small\bfseries]
+    \node[circle,fill=saffron,text=white,inner sep=3pt,font=\small\ramabhadra]
       at ([yshift=1.1cm]current page.south) {\thepage};
   \end{tikzpicture}%
   \fi}
@@ -93,7 +102,7 @@
 \newcommand{\vsec}[1]{%
   \par\addvspace{0.8em}\phantomsection\addcontentsline{toc}{section}{#1}%
   \begin{tcolorbox}[enhanced,colback=saffron,colframe=maroon,boxrule=1.2pt,
-    arc=6pt,halign=center,fontupper=\large\bfseries\color{white},
+    arc=6pt,halign=center,fontupper=\large\baloo\color{white},
     left=4pt,right=4pt,top=2pt,bottom=2pt,
     borderline={0.6pt}{2pt}{gold}]
     #1
@@ -124,7 +133,7 @@
 % ---------------- Cover ----------------
 \thispagestyle{empty}
 % Syllable widths measured here: inside tikzpicture the font is nullfont
-\def\covsyl{వి,నా,య,క,{~},వ్ర,త,క,ల్ప,ము}
+\def\covsyl{వి,నా,య,క,{\enspace},వ్ర,త,క,ల్ప,ము}
 \global\covacc=0pt
 \foreach \s [count=\k] in \covsyl {\settowidth\covw{\covfont\s}%
   \expandafter\xdef\csname covw\k\endcsname{\the\covw}%
