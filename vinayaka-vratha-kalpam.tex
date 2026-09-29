@@ -1,4 +1,4 @@
-% Compile: xelatex vinayaka-vratha-kalpam.tex (run twice for the contents page)
+% Compile: latexmk (see README.md for PDF and print modes)
 % Fonts (bundled in fonts/): Noto Sans Telugu body, Anek Telugu plain headings,
 % Baloo Tammudu 2 section banners, Suravaram cover title, Ramabhadra border.
 \documentclass[12pt,a4paper]{article}
@@ -72,8 +72,10 @@
 
 % Decorative border on every page except the cover, with the title badge
 % on the top edge, page number on the bottom edge and corner ornaments
+% Print mode (vinayaka-vratha-kalpam-print.tex) adds a blank page after the cover
+\ifdefined\printmode\def\frontpages{2}\else\def\frontpages{1}\fi
 \AddToShipoutPictureBG{%
-  \ifnum\value{page}>1
+  \ifnum\value{page}>\frontpages\relax
   \begin{tikzpicture}[remember picture,overlay]
     \coordinate (NE) at ([shift={(-1.1cm,-1.1cm)}]current page.north east);
     \coordinate (SW) at ([shift={(1.1cm,1.1cm)}]current page.south west);
@@ -166,7 +168,7 @@
   }
 \end{tikzpicture}
 \newpage
-
+\ifdefined\printmode\null\newpage\fi
 % ---------------- Contents ----------------
 \begin{tcolorbox}[enhanced,colback=maroon,colframe=gold,boxrule=1.5pt,arc=6pt,
   halign=center,fontupper=\Large\anek\color{white}]
