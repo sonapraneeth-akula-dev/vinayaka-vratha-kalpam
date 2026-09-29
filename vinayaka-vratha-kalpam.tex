@@ -1,6 +1,6 @@
 % Compile: xelatex vinayaka-vratha-kalpam.tex (run twice for the contents page)
-% Fonts (bundled in fonts/): Noto Sans Telugu body, Baloo Tammudu 2 section
-% banners, Suravaram cover title, Ramabhadra page-border badges.
+% Fonts (bundled in fonts/): Noto Sans Telugu body, Anek Telugu plain headings,
+% Baloo Tammudu 2 section banners, Suravaram cover title, Ramabhadra border.
 \documentclass[12pt,a4paper]{article}
 \usepackage[a4paper,margin=2.2cm,top=2.8cm,bottom=2.6cm]{geometry}
 \usepackage{fontspec}
@@ -18,6 +18,7 @@
 \defaultfontfeatures{Script=Telugu, Extension=.ttf}
 \setmainfont{NotoSansTelugu}[Path=fonts/noto-sans-telugu/,
   UprightFont=*-Regular, BoldFont=*-Bold]
+\newfontfamily\anek{AnekTelugu-Bold}[Path=fonts/anek-telugu/]
 \newfontfamily\baloo{BalooTammudu2-Bold}[Path=fonts/baloo-tammudu-2/]
 \newfontfamily\suravaram{Suravaram-Regular}[Path=fonts/suravaram/]
 \newfontfamily\ramabhadra{Ramabhadra-Regular}[Path=fonts/ramabhadra/]
@@ -162,7 +163,7 @@
 
 % ---------------- Contents ----------------
 \begin{tcolorbox}[enhanced,colback=maroon,colframe=gold,boxrule=1.5pt,arc=6pt,
-  halign=center,fontupper=\Large\bfseries\color{white}]
+  halign=center,fontupper=\Large\anek\color{white}]
   విషయసూచిక
 \end{tcolorbox}
 {\renewcommand{\contentsname}{}\vspace{-3em}\color{maroon}\tableofcontents}
@@ -170,11 +171,11 @@
 
 % ---------------- Text ----------------
 \begin{center}
-  {\color{maroon}\bfseries శ్రీరస్తు}\\
-  {\color{maroon}\bfseries శ్రీ విఘ్నేశ్వరాయ నమః}
+  {\color{maroon}\anek శ్రీరస్తు}\\
+  {\color{maroon}\anek శ్రీ విఘ్నేశ్వరాయ నమః}
 \end{center}
 \begin{tcolorbox}[enhanced,colback=maroon,colframe=gold,boxrule=2pt,arc=8pt,
-  halign=center,fontupper=\LARGE\bfseries\color{gold!30}]
+  halign=center,fontupper=\LARGE\anek\color{gold!30}]
   శ్రీ సిద్ధి వినాయక వ్రతకల్పము
 \end{tcolorbox}
 
@@ -279,7 +280,7 @@
 
 \begin{center}
 {\color{maroon}\bfseries హరిః ఓం తత్సత్}\\
-{\color{saffron}\Large\bfseries శ్రీ వినాయక వ్రతకథ సంపూర్ణం}\\
+{\color{saffron}\Large\anek శ్రీ వినాయక వ్రతకథ సంపూర్ణం}\\
 {\color{gold}\Large $\star$ \quad $\star$ \quad $\star$}
 \end{center}
 \newpage
@@ -300,7 +301,7 @@
 \vsec{విఘ్నేశ్వరుని మంగళ హారతులు}
 ఓ బొజ్జ గణపయ్య నీబంటు నేనయ్య ఉండ్రాళ్ళమీదికి దండుపంపు\\
 \hspace*{2em}కమ్మని నేయియును కడు ముద్దపప్పును బొజ్జవిరగగ దినుచు పొరలుకొనుచు
-\begin{center}{\color{saffron}\large\bfseries జయమంగళం నిత్యశుభ మంగళం}\end{center}
+\begin{center}{\color{saffron}\large\anek జయమంగళం నిత్యశుభ మంగళం}\end{center}
 వెండి పళ్ళెములోన వేయివేల ముత్యాలు కొండలుగ నీలములు కలయబోసి\\
 \hspace*{2em}మెండుగను హారములు మెడనిండ వేసుకొని దండిగా నీకిత్తు ధవళహారతిని \jaya
 
