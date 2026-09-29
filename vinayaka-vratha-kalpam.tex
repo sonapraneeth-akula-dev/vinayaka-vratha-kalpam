@@ -5,10 +5,12 @@
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{tikz}
+\newlength\covw
+\newlength\covacc
+\newcommand{\covfont}{\normalfont\fontsize{56}{60}\selectfont\bfseries}
 \usepackage{eso-pic}
 \usepackage[most]{tcolorbox}
 \usepackage{graphicx}
-\usepackage{contour}
 \usepackage{multicol}
 \usepackage[hidelinks]{hyperref}
 
@@ -121,27 +123,35 @@
 
 % ---------------- Cover ----------------
 \thispagestyle{empty}
+% Syllable widths measured here: inside tikzpicture the font is nullfont
+\def\covsyl{వి,నా,య,క,{~},వ్ర,త,క,ల్ప,ము}
+\global\covacc=0pt
+\foreach \s [count=\k] in \covsyl {\settowidth\covw{\covfont\s}%
+  \expandafter\xdef\csname covw\k\endcsname{\the\covw}%
+  \global\advance\covacc\covw}%
 \begin{tikzpicture}[remember picture,overlay]
   % Image is wider than A4: fit to page height, clip the sides
   \clip (current page.south west) rectangle (current page.north east);
   \node at (current page.center)
     {\includegraphics[height=\paperheight]{images/lord-ganesha.png}};
-  % Dark bands so the text stays readable over the artwork
-  \fill[black,opacity=0.4]
-    (current page.north west) rectangle ([yshift=-3.4cm]current page.north east);
-  \fill[black,opacity=0.35]
-    (current page.south west) rectangle ([yshift=3.2cm]current page.south east);
-  \node[font=\fontsize{15}{18}\selectfont\bfseries,text=gold!30]
-    at ([yshift=-1.1cm]current page.north) {శ్రీరస్తు \quad • \quad శ్రీ విఘ్నేశ్వరాయ నమః};
-  \node[font=\fontsize{50}{56}\selectfont\bfseries,text=yellow!85!gold]
-    at ([yshift=-2.5cm]current page.north)
-    {\contourlength{2.2pt}\contour{maroon}{వినాయక వ్రతకల్పము}};
-  \node[font=\fontsize{22}{26}\selectfont\bfseries,text=yellow!85!gold]
-    at ([yshift=1.7cm]current page.south)
-    {\contourlength{1.5pt}\contour{maroon}{భగవంతునికి భక్తునికి అనుసంధానమైనది}};
-  \draw[gold,line width=3pt,rounded corners=14pt]
-    ([shift={(0.6cm,0.6cm)}]current page.south west) rectangle
-    ([shift={(-0.6cm,-0.6cm)}]current page.north east);
+  % Title curved along the top of a circle. decorations.text breaks Telugu
+  % conjuncts, so each syllable is its own node: widths are measured, turned
+  % into angles on the arc, and the node rotated to the tangent. The maroon
+  % outline is the same syllable drawn in a ring of small offsets.
+  \coordinate (arcC) at ([yshift=-15.5cm]current page.north);
+  \def\covR{12.8cm}
+  \pgfmathsetmacro\covstart{90+deg(\covacc/(2*\covR))}
+  \global\covacc=0pt
+  \foreach \s [count=\k] in \covsyl {
+    \covw=\csname covw\k\endcsname\relax
+    \pgfmathsetmacro\ang{\covstart-deg((\covacc+0.5*\covw)/\covR)}
+    \foreach \o in {0,20,...,340}
+      \path (arcC) ++(\ang:\covR) ++(\o:2.6pt)
+        node[anchor=base,inner sep=0,rotate=\ang-90,font=\covfont,text=maroon] {\s};
+    \path (arcC) ++(\ang:\covR)
+      node[anchor=base,inner sep=0,rotate=\ang-90,font=\covfont,text=yellow!85!gold] {\s};
+    \global\advance\covacc\covw
+  }
 \end{tikzpicture}
 \newpage
 
