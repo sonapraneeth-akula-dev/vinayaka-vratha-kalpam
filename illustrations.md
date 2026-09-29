@@ -48,14 +48,58 @@ watermark, signature, logo, blood, gore, extra limbs, extra fingers,
 deformed hands, distorted faces, modern clothing, photorealistic, 3D render,
 blurry, cropped heads
 
+### Pandava scenes (1 and 5): keeping the family consistent
+
+Generators tend to get the headcount wrong, swap costumes between panels
+and redraw faces. The prompts below counter this with a fixed **character
+sheet** pasted into every prompt, the same left-to-right order everywhere,
+one signature colour and prop per person, and an explicit headcount.
+
+| Pos | Person | Look (fixed) | Exile costume | Royal costume (5 bottom only) |
+|---|---|---|---|---|
+| 1 | Yudhishthira (ధర్మరాజు) | eldest, ~40, wheatish-brown skin, short neat black beard, hair in a top-knot, calm gentle eyes | plain white cotton dhoti and white shawl, rudraksha mala | white-and-gold silk, tall gold crown |
+| 2 | Draupadi (ద్రౌపది) | ~30, dusky dark-brown skin, large eyes, long black braid, small red bindi | plain maroon cotton saree, no jewellery | red silk saree, gold jewellery, queen's crown |
+| 3 | Bhima (భీముడు) | tallest and broadest, very muscular, dark brown skin, thick curled moustache, no beard | saffron dhoti, bare chest, golden mace on his shoulder | saffron-and-gold silk, crown, mace |
+| 4 | Arjuna (అర్జునుడు) | lean athletic, dark brown skin, thin moustache, no beard | green dhoti, bow over shoulder, quiver on back | green-and-gold silk, crown, bow |
+| 5 | Nakula (నకులుడు) | youngest-looking, fair skin, clean-shaven, handsome, identical twin of Sahadeva | light blue dhoti, sword at waist | blue-and-gold silk, small crown |
+| 6 | Sahadeva (సహదేవుడు) | same face and fair skin as Nakula (twins), clean-shaven | purple dhoti, palm-leaf manuscript bundle | purple-and-gold silk, small crown |
+
+**Retry tips**
+
+- **Generate one panel at a time** (landscape 4:3) instead of the stacked
+  page. `\illus` takes two separate images, so no stacking is needed; name
+  them `<name>-1.png` / `<name>-2.png`.
+- Generate the first panel, then generate the second **with the first as
+  a reference image** (ChatGPT/DALL·E: "same characters as this image";
+  Midjourney: `--cref <url> --cw 100`; Leonardo/SD: Character Reference or
+  IP-Adapter). Keep the same seed where supported.
+- If the count is still wrong, **fix by inpainting** (erase the extra or
+  missing person and re-prompt just that area with their row from the table)
+  rather than regenerating the whole image.
+- Check the count before accepting: **5 men + 1 woman**, twins alike,
+  Bhima the largest, only Draupadi in a saree.
+
+**Extra negative prompt for 1 and 5:** more than five men, fewer than five
+men, two women, extra women, children, duplicate person, crowns in exile,
+jewellery in exile, mismatched costumes, changing skin tone, different faces
 ### 1. Naimisharanya — పాండవుల వనవాసము / సూతమహాముని వ్రతోపదేశము
 
 ```text
 Portrait 3:4 illustration in traditional Indian miniature painting style (Tanjore / Mysore mythological art), rich earthy colours with gold accents, aged parchment background, ornate floral border of red flowers and green vines around the whole page. The page holds two landscape panels stacked vertically, each framed, separated by a decorative floral band. No text anywhere.
-TOP PANEL: The five Pandava brothers and Draupadi in simple forest-exile clothing (ochre and saffron dhotis, bark-cloth shawls, no crowns), walking barefoot along a forest path into a peaceful rishi hermitage at Naimisharanya. Dharmaraja leads, calm and dignified; Bhima carries a mace, Arjuna a bow; Draupadi in a plain maroon saree. Tall banyan trees, deer grazing, small thatched ashram huts, soft morning light.
-BOTTOM PANEL: Suta Maharshi, an elderly white-bearded sage in saffron robes with rudraksha beads, sits on a raised platform under a large banyan tree, one hand raised in blessing, teaching a circle of seated sages led by Shaunaka. Dharmaraja kneels before him with folded hands, his brothers and Draupadi behind him. Sacred fire (homa) smoke, palm-leaf manuscripts, serene devotional mood.
-```
 
+CHARACTERS (identical in both panels: same faces, skin tones, hair, costumes and props; exactly SIX family members: FIVE men and ONE woman, no one else from the family):
+1. Yudhishthira: eldest man, about 40, wheatish-brown skin, short neat black beard, hair in a top-knot, calm gentle eyes; plain white cotton dhoti and white shawl, rudraksha mala; no crown, no jewellery.
+2. Draupadi: the only woman, about 30, dusky dark-brown skin, large eyes, long black braid, small red bindi; plain maroon cotton saree, no jewellery.
+3. Bhima: tallest and broadest man, very muscular, dark brown skin, thick curled moustache, no beard; saffron dhoti, bare chest, golden mace on his shoulder.
+4. Arjuna: lean athletic man, dark brown skin, thin moustache, no beard; green dhoti, bow over his shoulder, quiver on his back.
+5. Nakula: youngest-looking man, fair skin, clean-shaven, handsome; light blue dhoti, sword at his waist.
+6. Sahadeva: Nakula's identical twin, same face and fair skin, clean-shaven; purple dhoti, holds a palm-leaf manuscript bundle.
+All wear simple forest-exile clothing: barefoot, no crowns, no gold.
+
+TOP PANEL: The six characters walk in a single row from left to right along a forest path toward a peaceful rishi hermitage at Naimisharanya, in this exact left-to-right order: Yudhishthira (leading, at the front), Draupadi, Bhima, Arjuna, Nakula, Sahadeva. All six fully visible head to toe, faces clearly shown in three-quarter view. Tall banyan trees, deer grazing, small thatched ashram huts, soft morning light.
+
+BOTTOM PANEL: Under a large banyan tree, Suta Maharshi, an elderly sage with a long white beard in saffron robes and rudraksha beads, sits on a raised stone platform on the left, one hand raised in blessing, with a few seated sages (Shaunaka and others, all old men with white beards and saffron robes) beside him. On the right, Yudhishthira kneels before him with folded hands; behind Yudhishthira stand the other five in the same order: Draupadi, Bhima, Arjuna, Nakula, Sahadeva, all with folded hands. Same six characters exactly as described: same faces, skin tones and costumes as the top panel. Sacred fire (homa) smoke, palm-leaf manuscripts, serene devotional mood.
+```
 ### 2. Kailasa — కుమారస్వామి శివుని ప్రశ్నించుట / వినాయక వ్రత విధానము
 
 ```text
@@ -84,6 +128,16 @@ BOTTOM PANEL: Krishna, seated cross-legged, performs Ganesha puja with devotion,
 
 ```text
 Portrait 3:4 illustration in traditional Indian miniature painting style (Tanjore / Mysore mythological art), rich earthy colours with gold accents, aged parchment background, ornate floral border of red flowers and green vines around the whole page. The page holds two landscape panels stacked vertically, each framed, separated by a decorative floral band. No text anywhere.
-TOP PANEL: In a forest hermitage, Dharmaraja, his four brothers and Draupadi, still in simple exile clothing, sit together performing Vinayaka Chavithi puja before a clay Ganesha on a rice mandapa, offering flowers, patri leaves, fruits and modaks, with brass lamps and incense. Devotional, hopeful mood, soft morning light.
-BOTTOM PANEL: A grand royal court in Indraprastha. Dharmaraja, now in rich royal robes and jewels, sits on a golden throne being crowned by sages pouring sacred water, with Draupadi as queen beside him and his four brothers standing proudly. Courtiers celebrate, flower petals fall. Above the throne, a small glowing image of Lord Ganesha blesses the scene with raised hand. Festive, triumphant mood.
+
+CHARACTERS (identical faces, skin tones and hair in both panels; each keeps the same signature colour and prop; exactly SIX family members: FIVE men and ONE woman):
+1. Yudhishthira: eldest man, about 40, wheatish-brown skin, short neat black beard, calm gentle eyes; signature colour WHITE, rudraksha mala.
+2. Draupadi: the only woman, about 30, dusky dark-brown skin, large eyes, long black braid, small red bindi; signature colour MAROON/RED.
+3. Bhima: tallest and broadest man, very muscular, dark brown skin, thick curled moustache, no beard; signature colour SAFFRON, golden mace.
+4. Arjuna: lean athletic man, dark brown skin, thin moustache, no beard; signature colour GREEN, bow.
+5. Nakula: youngest-looking man, fair skin, clean-shaven, handsome; signature colour LIGHT BLUE, sword.
+6. Sahadeva: Nakula's identical twin, same face and fair skin, clean-shaven; signature colour PURPLE, palm-leaf manuscript.
+
+TOP PANEL (forest exile, simple cotton clothes in each person's signature colour, barefoot, no crowns, no jewellery): In a forest hermitage the six sit cross-legged in a semicircle facing a clay Ganesha idol on a rice-heap mandapa with an eight-petal lotus design, in this exact left-to-right order: Yudhishthira, Draupadi, Bhima, Arjuna, Nakula, Sahadeva. Yudhishthira offers flowers; the others hold folded hands. Patri leaves, fruits, modaks on banana leaves, brass lamps, incense. Devotional, hopeful mood, soft morning light. All six faces clearly visible.
+
+BOTTOM PANEL (coronation, same six people, same faces and skin tones; now in rich silk in their signature colours with gold borders, gold jewellery and crowns): A grand royal court in Indraprastha. Yudhishthira sits at the centre on a golden throne being crowned by two elderly white-bearded sages pouring sacred water from gold kalashas. Draupadi sits beside him on the throne to his left as queen. Standing, two on each side: Bhima and Arjuna on the left of the throne, Nakula and Sahadeva on the right. Courtiers in the background, flower petals falling. Above the throne, a small glowing image of Lord Ganesha blesses the scene with a raised hand. Festive, triumphant mood.
 ```
