@@ -95,6 +95,12 @@
 
 \pagestyle{empty}
 
+% Telugu numerals for page numbers (expandable, so the contents page gets them too)
+\newcommand\teludigit[1]{\ifcase#1 ౦\or ౧\or ౨\or ౩\or ౪\or ౫\or ౬\or ౭\or ౮\or ౯\fi}
+\makeatletter
+\def\telu@num#1{\ifx\relax#1\else\teludigit{#1}\expandafter\telu@num\fi}
+\renewcommand\thepage{\expandafter\telu@num\number\c@page\relax}
+\makeatother
 % Section banner (also added to contents + PDF bookmarks)
 \newcommand{\vsec}[1]{%
   \par\addvspace{0.8em}\phantomsection\addcontentsline{toc}{section}{#1}%
