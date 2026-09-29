@@ -8,6 +8,7 @@
 \usepackage{eso-pic}
 \usepackage[most]{tcolorbox}
 \usepackage{graphicx}
+\usepackage{contour}
 \usepackage{multicol}
 \usepackage[hidelinks]{hyperref}
 
@@ -121,22 +122,26 @@
 % ---------------- Cover ----------------
 \thispagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay]
-  \shade[top color=saffron,bottom color=maroon]
-    (current page.south west) rectangle (current page.north east);
-  \draw[gold,line width=4pt,rounded corners=14pt]
-    ([shift={(1cm,1cm)}]current page.south west) rectangle
-    ([shift={(-1cm,-1cm)}]current page.north east);
-  \draw[gold!60,line width=1pt,rounded corners=10pt]
-    ([shift={(1.3cm,1.3cm)}]current page.south west) rectangle
-    ([shift={(-1.3cm,-1.3cm)}]current page.north east);
-  \node[text=gold!40,font=\fontsize{130}{130}\selectfont\bfseries] at ([yshift=4cm]current page.center) {ఓం};
-  \node[text=white,font=\fontsize{20}{24}\selectfont\bfseries] at ([yshift=-0.6cm]current page.center)
-    {శ్రీరస్తు \quad • \quad శ్రీ విఘ్నేశ్వరాయ నమః};
-  \node[text=gold!30,font=\fontsize{42}{52}\selectfont\bfseries,align=center]
-    at ([yshift=-3.4cm]current page.center) {శ్రీ సిద్ధి వినాయక\\వ్రతకల్పము};
-  \node[fill=white,fill opacity=0.9,text opacity=1,text=maroon,rounded corners=8pt,
-    inner sep=10pt,font=\Large\bfseries] at ([yshift=-7.2cm]current page.center)
-    {భగవంతునికి భక్తునికి అనుసంధానమైనది};
+  % Image is wider than A4: fit to page height, clip the sides
+  \clip (current page.south west) rectangle (current page.north east);
+  \node at (current page.center)
+    {\includegraphics[height=\paperheight]{images/lord-ganesha.png}};
+  % Dark bands so the text stays readable over the artwork
+  \fill[black,opacity=0.4]
+    (current page.north west) rectangle ([yshift=-3.4cm]current page.north east);
+  \fill[black,opacity=0.35]
+    (current page.south west) rectangle ([yshift=3.2cm]current page.south east);
+  \node[font=\fontsize{15}{18}\selectfont\bfseries,text=gold!30]
+    at ([yshift=-1.1cm]current page.north) {శ్రీరస్తు \quad • \quad శ్రీ విఘ్నేశ్వరాయ నమః};
+  \node[font=\fontsize{50}{56}\selectfont\bfseries,text=yellow!85!gold]
+    at ([yshift=-2.5cm]current page.north)
+    {\contourlength{2.2pt}\contour{maroon}{వినాయక వ్రతకల్పము}};
+  \node[font=\fontsize{22}{26}\selectfont\bfseries,text=yellow!85!gold]
+    at ([yshift=1.7cm]current page.south)
+    {\contourlength{1.5pt}\contour{maroon}{భగవంతునికి భక్తునికి అనుసంధానమైనది}};
+  \draw[gold,line width=3pt,rounded corners=14pt]
+    ([shift={(0.6cm,0.6cm)}]current page.south west) rectangle
+    ([shift={(-0.6cm,-0.6cm)}]current page.north east);
 \end{tikzpicture}
 \newpage
 
