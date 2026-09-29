@@ -1,7 +1,7 @@
 % Compile: xelatex vinayaka-vratha-kalpam.tex (run twice for the contents page)
-% ponytail: uses Windows "Nirmala UI" font; swap to "Noto Serif Telugu" on other OSes.
+% Fonts: bundled Noto Sans Telugu in fonts/noto-sans-telugu (Regular + Bold).
 \documentclass[12pt,a4paper]{article}
-\usepackage[margin=2.2cm,top=2.8cm,bottom=2.6cm]{geometry}
+\usepackage[a4paper,margin=2.2cm,top=2.8cm,bottom=2.6cm]{geometry}
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{tikz}
@@ -12,7 +12,8 @@
 \usepackage{multicol}
 \usepackage[hidelinks]{hyperref}
 
-\setmainfont{Nirmala UI}[Script=Telugu, AutoFakeBold=2]
+\setmainfont{NotoSansTelugu}[Script=Telugu, Path=fonts/noto-sans-telugu/,
+  Extension=.ttf, UprightFont=*-Regular, BoldFont=*-Bold]
 \linespread{1.35}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.6em}
@@ -93,7 +94,7 @@
   \draw[gold!60,line width=1pt,rounded corners=10pt]
     ([shift={(1.3cm,1.3cm)}]current page.south west) rectangle
     ([shift={(-1.3cm,-1.3cm)}]current page.north east);
-  \node[text=gold!40,font=\fontsize{160}{160}\selectfont] at ([yshift=4cm]current page.center) {ॐ};
+  \node[text=gold!40,font=\fontsize{130}{130}\selectfont\bfseries] at ([yshift=4cm]current page.center) {ఓం};
   \node[text=white,font=\fontsize{20}{24}\selectfont\bfseries] at ([yshift=-0.6cm]current page.center)
     {శ్రీరస్తు \quad • \quad శ్రీ విఘ్నేశ్వరాయ నమః};
   \node[text=gold!30,font=\fontsize{42}{52}\selectfont\bfseries,align=center]
