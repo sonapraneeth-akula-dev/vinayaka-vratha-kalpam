@@ -1,5 +1,5 @@
 % Compile: xelatex vinayaka-vratha-kalpam.tex (run twice for the contents page)
-% Fonts (bundled in fonts/, OFL): Anek Telugu body, Baloo Tammudu 2 section
+% Fonts (bundled in fonts/): Noto Sans Telugu body, Baloo Tammudu 2 section
 % banners, Suravaram cover title, Ramabhadra page-border badges.
 \documentclass[12pt,a4paper]{article}
 \usepackage[a4paper,margin=2.2cm,top=2.8cm,bottom=2.6cm]{geometry}
@@ -16,15 +16,11 @@
 \usepackage[hidelinks]{hyperref}
 
 \defaultfontfeatures{Script=Telugu, Extension=.ttf}
-\setmainfont{AnekTelugu}[Path=fonts/anek-telugu/,
+\setmainfont{NotoSansTelugu}[Path=fonts/noto-sans-telugu/,
   UprightFont=*-Regular, BoldFont=*-Bold]
 \newfontfamily\baloo{BalooTammudu2-Bold}[Path=fonts/baloo-tammudu-2/]
 \newfontfamily\suravaram{Suravaram-Regular}[Path=fonts/suravaram/]
 \newfontfamily\ramabhadra{Ramabhadra-Regular}[Path=fonts/ramabhadra/]
-% Anek Telugu and Baloo lack the dandas; borrow them from Ramabhadra
-\usepackage{newunicodechar}
-\newunicodechar{।}{{\ramabhadra ।}}
-\newunicodechar{॥}{{\ramabhadra ॥}}
 \linespread{1.35}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.6em}
