@@ -1,6 +1,6 @@
 # శ్రీ వినాయక వ్రతకల్పము
 
-XeLaTeX edition of the Vinayaka Vratha Kalpam booklet (A4, Telugu).
+XeLaTeX edition of the Vinayaka Vratha Kalpam booklet (A4, Telugu, 14pt body).
 
 ## Requirements
 
